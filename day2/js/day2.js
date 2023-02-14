@@ -1,3 +1,5 @@
+//search for '???'
+
 // alert("set okay?");
 
 //// Function Decalaring
@@ -207,14 +209,377 @@
 //     }
 //     return 0;
 //   }
-  
+
 //   console.log(getRectArea(3, 4));
 //   // Expected output: 12
-  
+
 //   console.log(getRectArea(-3, 4));
 //   // Expected output: 0
-  
+
 
 ////함수는 함수 이름에 언급되어 있는 동작을 정확히 수행해야 합니다.
 ////그 이외의 동작은 수행해선 안 됩니다.
 ////&& 함수==주석
+
+//// ???) 소수 구하는 로직이 이해가 안 돼 이중 포문 어케 해석해 이거???
+// function showPrimes(n){
+//     nextPrime: for (let i = 2; i < n; i++){
+//         for (let j = 2; j < i; j++){
+//             if (i%j == 0) continue nextPrime;
+//         }
+//         alert(i);
+//     }
+// }
+
+
+///???
+// function showPrimes(n) {   //if showPrimes(5); i=2 i<5 ++2%5 =1 true 2 alert(2), i=3 3%5 !=0 true 3 alert(3)
+//                             //i=4, 5%4 = 1 true 이게 아닌디?..
+//     for (let i = 2; i < n; i++) {
+//       if (!isPrime(i)) continue;
+
+//       alert(i);  // a prime
+//     }
+//   }
+
+//   function isPrime(n) {
+//     for (let i = 2; i < n; i++) {
+//       if ( n % i == 0) return false;
+//     }
+//     return true;
+//   }
+
+
+// let sayHi=function(){
+//     alert("hi");
+// };
+//     ////코드블록이 아니라 값처럼 취급됨. 고로 ';'가 필요. let sayHi = sth;
+
+// function sayHi(){
+//     alert("hi");
+// }
+//     ////{} 끝엔 ';'이 없어도 됨. function sayHi(){}
+
+
+
+//콜백함수
+//1
+// function ask(question, yes, no) {
+//     if (confirm(question)) yes()
+//     else no();
+// }
+
+//     //이하 콜백함수
+//     //함수를 함수의 인수로 전달하고, 필요하다면 인수로 전달한 그 함수를 
+//     //"나중에 호출(called back)"하는 것이 콜백 함수의 개념.
+// function showOk(){
+//     alert("동의했음");
+// }
+
+// function showCanc(){
+//     alert("취소 눌러씀");
+// }
+
+// ask("동의하십니까?", showOk, showCanc);
+
+
+
+//콜백함수
+//2
+// function ask(q, y, n){
+//     if(confirm(q)) y()
+//     else n();
+// }
+
+// ask(
+//     "동의?",
+//     function() {alert("동의");}, //익명 함수. 변수에 할당된 게 아니므로
+//     function() {alert("취소");}  //ask() 바깥에선 접근 불가.
+// )
+
+
+
+//함수 선언문과 함수 표현식
+//1
+
+//함수 선언문 ~ 함수 선언문은 스크립트가 실제로 실행되기 전 "초기화 단계"에서 생성.
+// sayHi("John"); // Hello, John
+
+// function sayHi(name) {
+//   alert( `Hello, ${name}` );
+// }
+
+//     //함수 표현식 ~ 함수 표현식은 실행 흐름이 표현식에 다다랐을 때 만들어진다!
+// sayHi("John"); // error!
+
+// let sayHi = function(name) {  // (*) 마술은 일어나지 않습니다.
+//   alert( `Hello, ${name}` );
+// }
+
+//함수 선언문 2
+//but, 함수 선언문은 함수가 선언된 코드 블록 안에서만 유효.
+//즉, 함수가 선언된 지역 안에만 있다면 위치는 어디든 상관 없음. 동층위상적 실행.
+// "use strict";
+
+// let age = 16; // 16을 저장했다 가정합시다.
+
+// if (age < 18) {
+//   welcome();               //  \   (실행)
+//                            //  |
+//   function welcome() {     //  |
+//     alert("안녕!");         //  |  함수 선언문은 함수가 선언된 블록 내
+//   }                        //  |  어디에서든 유효합니다
+//                            //  |
+//   welcome();               //  /   (실행)
+
+// } else {
+
+//   function welcome() {
+//     alert("안녕하세요!");
+//   }
+// }
+
+// // 여기는 중괄호 밖이기 때문에
+// // 중괄호 안에서 선언한 함수 선언문은 호출할 수 없습니다.
+
+// welcome(); // Error: welcome is not defined
+
+
+
+//함수 표현식 2
+//if문 밖에서, 그러니까 다른 층위의 위상에서도 welcome()을 실행하려면
+//if문 밖에서, welcome을 선언하면 됨=>함수 표현식으로
+// "use strict";
+
+// let age = prompt("나이를 알려주세요.", 18);
+
+// let welcome;
+
+// if (age < 18) {
+
+//   welcome = function() {
+//     alert("안녕!");
+//   };
+
+// } else {
+
+//   welcome = function() {
+//     alert("안녕하세요!");
+//   };
+// }
+
+// welcome(); // 제대로 동작
+
+
+
+//Bonus
+// let age = prompt("나이를 알려주세요!", 20);
+
+// // console.log(age);
+
+// //이거 ternary인데 ㅋㅋ
+// let welcome = (age<18) ?
+//     function() {alert("환영한당~~")} :
+//     function() {alert("환영함다!!")} ;
+
+// welcome();
+
+
+
+//arrow function
+//1. format
+// let func = (arg1, arg2, ... argN) => expression
+
+//ex1
+// let sum = (a,b) => a+b;
+// console.log(sum(3252, 23423));
+
+//ex2
+//인수가 하나라면 () 생략 가능
+// let double = n => n*2;
+// console.log(double(23542477));
+
+//ex3
+//인수가 없으면 빈 괄호
+// let sayHi = () => alert("hi!");
+// sayHi();
+
+//ex4
+// let age = prompt("몇 살이니?", 20);
+
+// let welcome = (age<20) ?
+//     () => alert("애기넴"):
+//     () => alert("아재넴");
+
+// welcome();
+
+
+//ex5
+// let sum = (a, b) => {
+//     let result = a + b;
+//     return result;
+// }
+
+// console.log(sum(234,856));
+
+
+//prac
+// function ask(question, yes, no) {
+//     if (confirm(question)) yes()
+//     else no();
+// }
+
+// ask(
+//     "동의하십니까?",
+//     () => alert(""),
+//     () => alert("")
+// );
+
+
+//나머지 매개변수(parameter)
+//1
+// function sumAll(...args) {
+//     let sum = 0;
+//     for (let arg of args) sum += arg;
+//     return sum;
+// }
+
+// console.log( sumAll(1, 4324, 223, 4557));
+// console.log( sumAll(11, 24, 773, 47));
+// console.log( sumAll(661, 244, 23423, 4509));
+
+
+//2
+//매개변수 목록(...titles)을 배열(titles[i])로 가져옴.
+// function showName(firstName, lastName, ...titles) {
+//     console.log(firstName + '-' + lastName);
+//     //firstName && lastName 매개변수에 해당하는 인수를 위에 넣었으니까
+//     //이제 나머지 아래 적는 건 titles 매개변수의 인수들이 되겠지?
+//     //즉, tiltes라는 배열에 할당되겠쥬?
+//     console.log( titles[0]);
+//     console.log( titles[1]);
+//     console.log( titles);
+// }
+
+// showName("EH", "Lee", "Poet", "Novelist", "Language Engineer");
+
+
+
+    ///???
+// function f() {
+//     let showArg = () => alert(arguments[0]);
+//     showArg();
+// }
+
+// console.log(f);
+// f(1); // 1
+// f(100);
+
+
+////spread syntax
+////매개변수 목록을 배열로 가져오는 게 아니라 반대로
+////배열을 매개변수로 넘겨주기
+
+////1
+// console.log( Math.max(325,32423,53634,1234124356,6623434141));
+// alert( Math.max(325,32423,53634,1234124356,6623434141));
+
+
+////2
+////Math.max는 배열이 아닌 숫자 목록을 인수로 받는다.
+// let arr = [3, 5, 1];
+// console.log(Math.max(arr)); //NaN Not a Number
+
+
+////2-2
+// let arr = [3, 5, 1];
+// console.log(Math.max(...arr));
+
+
+////3
+// let arr1 = [4, 523, -34, 2];
+// let arr2 = [24, 23, -1, 26];
+
+// alert( Math.max(...arr1, ...arr2));
+
+////4
+// let arr1 = [4, 523, -34, 2];
+// let arr2 = [24, 23, -1, 26];
+// let arr3 = [2554, 243, -1, 26];
+
+// console.log( Math.max(...arr1, ...arr2, 3, 64, 641, ...arr3));
+
+
+////5
+// let arr1 = [4, 523, -34, 2];
+// let arr2 = [24, 23, -1, 26];
+// let arr3 = [2554, 243, -1, 26];
+
+// let mergedArrs = [3, 6, 1204, 440, ...arr1, ...arr2, ...arr3]
+
+// console.log(mergedArrs);
+// console.log(Math.max(...mergedArrs));
+
+//6
+//스프레드 문법을 통해
+//문자열을 문자 배열로 변환하기
+// let str = "sthsth";
+// console.log([...str]); //> (6) ['s', 't', 'h', 's', 't', 'h']
+
+//7
+//Array.from == 스프레드 문법과 비슷한 내장 메서드 
+//spread syntax와 달리 유사 배열 객체에도 사용 가능! 와우!
+
+// let str = "dgsdgsd"
+// console.log(Array.from(str)); //> (7) ['d', 'g', 's', 'd', 'g', 's', 'd']
+
+
+//8
+//배열 복사
+
+// let arr = [1, 2, 3];
+// let arrCopy = [...arr]; // 배열을 펼쳐서 각 요소를 분리후, 매개변수 목록으로 만든 다음에
+//                         // 매개변수 목록을 새로운 배열에 할당함
+
+// // 배열 복사본의 요소가 기존 배열 요소와 진짜 같을까요?
+// console.log(JSON.stringify(arr));
+// // alert(JSON.stringify(arr) === JSON.stringify(arrCopy)); // true
+
+// alert(arr === arrCopy); // false (참조가 다름)
+
+// // 참조가 다르므로 기존 배열을 수정해도 복사본은 영향을 받지 않습니다.
+// arr.push(4);
+// alert(arr); // 1, 2, 3, 4
+// alert(arrCopy); // 1, 2, 3
+
+
+//9
+//객체 복사
+
+// let obj = { a: 1, b: 2, c: 45};
+// let objCopy = {...obj} //유사 배열 객체는 스프레드 문법으로 안 된다고 했는데?..머지
+                            //-> 저도 궁금해서 찾아봤는데
+                                // let obj = {'key1': 'value1'};
+                                // let array = [...obj]; // TypeError: obj is not iterable
+                                // 이런경우에 한해서 말하는 것 같습니다.
+
+
+// // 객체 복사본의 프로퍼티들이 기존 객체의 프로퍼티들과 진짜 같을까요?
+// alert(JSON.stringify(obj) === JSON.stringify(objCopy)); // true
+
+// // 두 객체는 같을까요?
+// alert(obj === objCopy); // false (참조가 다름)
+
+// // 참조가 다르므로 기존 객체를 수정해도 복사본은 영향을 받지 않습니다.
+// obj.d = 4;
+// alert(JSON.stringify(obj)); // {"a":1,"b":2,"c":3,"d":4}
+// alert(JSON.stringify(objCopy)); // {"a":1,"b":2,"c":3}
+
+// "..."은 나머지 매개변수나 스프레드 문법으로 사용할 수 있습니다.
+
+// 나머지 매개변수와 스프레드 문법은 아래의 방법으로 구분할 수 있습니다.
+
+// ...이 함수 매개변수의 끝에 있으면 인수 목록의 나머지를 배열로 모아주는 '나머지 매개변수’입니다.
+// 439~464lns
+
+// ...이 함수 호출 시 사용되거나 기타 경우엔 배열을 목록으로 확장해주는 '스프레드 문법’입니다.
