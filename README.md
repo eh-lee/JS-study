@@ -2,4 +2,4 @@
 alert, confirm, prompt, typeof
 
 -day2
-function, varialbe
+function, varialbe, parameter, argument, nullish coalescing operator
