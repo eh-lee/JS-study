@@ -4,7 +4,7 @@ alert, confirm, prompt, typeof
 -day2
 function, varialbe, parameter, argument, nullish coalescing operator, return,
 함수 선언문, 함수 표현식, arrow function,
-나머지 매개변수(parameter), spread syntax(+유사배열객체 스프레딩기능까지 추가한 게 => Array.from  ~ method),
+나머지 매개변수(parameter), spread syntax(+유사배열객체 스프레딩기능까지 추가한 게 => Array.from  ~ method), computed property("let obj={[computed_propoerty]: value, }; ")
 
 *cf)
 // let obj = { a: 1, b: 2, c: 45};
@@ -14,5 +14,5 @@ function, varialbe, parameter, argument, nullish coalescing operator, return,
                                 // let array = [...obj]; // TypeError: obj is not iterable
                                 // 이런경우에 한해서 말하는 것 같습니다.
 
--Nedd to Learn
+-Need to Learn
 Iterable Object, Iterator

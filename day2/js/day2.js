@@ -583,3 +583,125 @@
 // 439~464lns
 
 // ...이 함수 호출 시 사용되거나 기타 경우엔 배열을 목록으로 확장해주는 '스프레드 문법’입니다.
+
+
+
+
+//////Chapter02. Object
+
+// console.log(console); 
+// console.dir(console);
+
+// let user = {
+//     name: "John",
+//     age: 30,
+//     "likes birds": true  // 복수의 단어는 따옴표로 묶어야 합니다.
+//   };
+
+
+// let user = {};
+
+// // set
+// user["likes birds"] = true;
+// //user라는 이름의 객체에 "likes birds"라는 이름의 프로퍼티 키를 넣어 주며
+// //해당 키에 대응하는 밸루는 true이다.
+// //즉, user = {"likes birds":true,}
+
+// // get
+// alert(user["likes birds"]); //> true
+
+// // delete
+// delete user["likes birds"];
+
+// alert(user["likes birds"]); //> undefined
+
+//prac
+// user = {"likes birds":true,}
+// console.log([user["likes birds"]]); //>true
+
+// //prac3
+// let user = {};
+// let key = "likes birds";
+// user[key] = true; // == user["likes birds"] = true;
+                     // => == let user = {"likes birds":true,}
+// console.log(user["likes birds"]);
+
+
+// //prac4
+// //**
+// let user = {
+//     name: "lee-eh",
+//     age: 32, //',' == trailling or hanging 쉼표
+// };
+
+// let key = prompt("Q", "name");
+// console.log(user[key]);
+// //propmpt의 모달 창 내용은 "Q"이고, 모달 창 input창에 미리
+// //작성된 default 값은 "name"이다. 사용자가 프롬트 input창에 실제로
+// //작성한 value가 바로 "key"가 된다. 즉 사용자가 prompt input에 'n22523'
+// //이라고 적었으면 key는 'n22523'이 되는 것
+// //그것을 user 객체가 프로퍼티 키 값으로 가진다면
+// //콘솔에 무언가 찍히겠쥬? 
+
+
+////계산된 프로퍼티
+////computed property
+////1
+
+//객체 안의 프로퍼티 키가 대괄호로 둘러싸인 경우 이것을
+//계산된 프로퍼티라고 한다.
+// let fruit = prompt("Q", "default str");
+// let bag = {
+//     [fruit]: 5,
+// };
+// //이때 유저가 프롬프트 모달 창 인풋에 입력한 값이
+// //[fruit]의 프로퍼티 키로 할당된다.
+// console.log(bag.sth_users_typed); // >5
+
+
+
+////계산된 프로퍼티
+////computed property
+////2
+// let fruit = prompt("어떤 과일을 구매하시겠습니까?", "apple");
+// let bag = {};
+// console.log(bag) // bag = {};  // > {}
+// // 변수 fruit을 사용해 프로퍼티 이름을 만들고,
+// //그게 bag[fruit]에 들어간다. 왜냐면 계산된 프로퍼티라.. 억지 이해 중
+// bag[fruit] = 5;
+// console.log(bag) //bag = {사용자가 프롬트에 인풋한 값: 5} // > {sth :5}
+
+//cf.) https://ko.javascript.info/object
+
+
+// function makeUser(name, age){
+//     return {
+//         name: name,
+//         age: age,
+//     };
+// }
+
+// let user = makeUser("John", 30);
+// console.log(user.name);
+
+//이처럼 프로퍼티의 키와 밸루 네임이 일치하는 경우 단축 구문으로 작성할 수 있다
+//그것을 property value shorthand라고 한다
+
+// function makeUser(name, age){
+//     return{
+//     name,
+//     age,
+//     };
+// }
+
+// let user = makeUser("eh-lee",30);
+// console.log(user); // >{name: 'eh-lee', age: 30}
+
+
+// let user = {
+//     name,
+//     age: 30,
+// };
+
+
+console.log(this);
